@@ -1,10 +1,13 @@
-import {data} from "..speakerData.js"
+import { data} from "../SpeakerData"
  
 const indexPage = ()=>{
+    
+    const {id,bio,first,last,favorite,twitterHandle,company,sessions,}=data[0]
+    
     return (
-        const {id,bio,first,last,favorite,twitterHandle,company,sessions,}=data[0]
+       
 
-        <div>Hello from Plural</div>
+        <div>Hello from Plural1</div>
     );
 }
 
