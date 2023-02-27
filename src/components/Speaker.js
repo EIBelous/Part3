@@ -51,8 +51,8 @@ function SpeakerDemographics({ first, last, bio, company, twitterHandle, favorit
         </div>
     )
 }
-function Speaker({ speaker }) {
-    const { id, first, last, sessions } = speaker;
+function Speaker ( { speaker } ) {
+     const { id, first, last, sessions } = speaker;
     return (
         <div
 
