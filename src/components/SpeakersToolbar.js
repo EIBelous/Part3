@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-function SpeakersTollbar({theme,setTheme}){
-const [showSessions, setShowsessions]=useState(true)
+function SpeakersTollbar({theme,setTheme,showSessions,setShowsessions}){
+
 
     return(
 <section className="toolbar dark-theme-header">
@@ -12,7 +12,8 @@ const [showSessions, setShowsessions]=useState(true)
           <li className="d-flex flex-column flex-md-row">
             <b>Show sessions &nbsp;&nbsp;</b>
             <label className="fav">
-                <input type="checkbox"
+                <input 
+                type="checkbox"
                 checked={showSessions}
                 onChange={(event)=>{
                 setShowsessions(event.target.checked)
