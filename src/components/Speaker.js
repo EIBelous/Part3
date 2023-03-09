@@ -55,6 +55,7 @@ function SpeakerDemographics({ first, last, bio, company, twitterHandle, favorit
 }
 function Speaker({ speaker, showSessions }) {
     const { id, first, last, sessions } = speaker;
+    
     return (
         <div
             className="col=xs-12 col-sm-12 col-md-6 col-lg-4 col-sm-12 col-xs-12">
@@ -62,10 +63,11 @@ function Speaker({ speaker, showSessions }) {
                 <SpeakerImage id={id} first={first} last={last} />
                 <SpeakerDemographics {...speaker} />
             </div>
-            {showSessions !== true ?
+            {showSessions === true ?
                 <Sessions sessions={sessions} /> :
                 null}
         </div>
+      
     )
 }
 

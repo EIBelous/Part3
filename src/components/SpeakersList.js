@@ -1,6 +1,6 @@
 import Speaker from './Speaker'
 
-function SpeakersList({data,showSesions}){
+function SpeakersList({data,showSessions}){
     return(
         <div className="container speakers-list">
             <div className="row">
@@ -8,7 +8,7 @@ function SpeakersList({data,showSesions}){
                     return (
                     <Speaker key={speaker.id} 
                     speaker={speaker}
-                    showSesions={showSesions} />
+                    showSessions={showSessions} />
                     )
                 })}
             </div>
