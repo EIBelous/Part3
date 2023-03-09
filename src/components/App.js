@@ -12,7 +12,7 @@ function App() {
         }>
             <Header theme={theme} />
             <Speakers
-                data={data}
+                
                 theme={theme}
                 setTheme={setTheme}
             />

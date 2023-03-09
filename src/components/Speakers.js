@@ -2,7 +2,7 @@ import SpeakersList from './SpeakersList';
 import SpeakersTollbar from './SpeakersToolbar';
 import { useState } from "react"
 
-function Speakers({ data, theme, setTheme }) {
+function Speakers({  theme, setTheme }) {
     const
         [showSessions, setShowsessions] = useState(true)
     return (
@@ -13,8 +13,7 @@ function Speakers({ data, theme, setTheme }) {
                 showSessions={showSessions}
                 setShowsessions={setShowsessions} />
 
-            <SpeakersList data={data}
-                showSessions={showSessions} />
+            <SpeakersList  showSessions={showSessions} />
         </>
         
     )
