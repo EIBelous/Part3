@@ -1,5 +1,5 @@
 import { useDebugValue } from "react";
-
+import { useState } from "react";
 function Session({ title, room }) {
     return (
         <span className="sesion w-100">
@@ -28,15 +28,27 @@ function SpeakerImage({ id, first, last }) {
     )
 }
 function SpeakerFavorite({favorite, onFavoriteToggle}){
+    const [inTransition, setInTransition] = useState(false)
+    function doneCallback(){
+        setInTransition(false)
+        console.log(`In SpeakerFavorite:doneCallback  ${new Date().getMilliseconds()}`)
+    }
     return(
         <div className="action padB1">
             <span
-            onClick={onFavoriteToggle}>
+            onClick={function(){
+                setInTransition(true)
+                return onFavoriteToggle(doneCallback)
+            }}
+            >
                 <i className={
                     favorite === true ?
                     "fa fa-star orange" : "fa fa-star-o orange"
                 } />{""}
                 Favorite{""}
+               {inTransition ? (
+                <div className="fas fa-circle-notch fa-spin"></div>
+               ) : null}
             </span>
         </div>
     )
