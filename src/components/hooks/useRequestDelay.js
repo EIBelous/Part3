@@ -30,18 +30,24 @@ useEffect(() => {
 }, [])
 
     function updateRecord(recordUpdated, doneCallback) {
+        const oridinalRecords=[...data]
         const newRecords = data.map(function (rec) {
             return rec.id === recordUpdated.id ? recordUpdated : rec
         })
         async function delayFunction() {
             try {
+                setData(newRecords)
                 await delay(delayTime)
                 if (doneCallback){
                     doneCallback()
                 }
-                setData(newRecords)
+                
             } catch (error) {
                 console.log("Eroorr ya ebu blyaaaa")
+                if (doneCallback) {
+                    doneCallback()
+                }
+                setData(oridinalRecords)
             }
         }
 delayFunction()
