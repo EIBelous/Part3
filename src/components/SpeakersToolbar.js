@@ -1,7 +1,9 @@
 import { useState } from "react"
+import { ThemeContext } from "./Layout"
+import {useContext} from "react"
 
-function SpeakersTollbar({theme,setTheme,showSessions,setShowsessions}){
-
+function SpeakersTollbar({showSessions,setShowsessions}){
+const {theme, setTheme} = useContext(ThemeContext)
 
     return(
 <section className="toolbar dark-theme-header">
