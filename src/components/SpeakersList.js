@@ -2,8 +2,8 @@ import Speaker from './Speaker'
 import ReactPlaceholder from 'react-placeholder/lib';
 import useRequestDelay, {REQUEST_STATUS}  from './hooks/useRequestDelay';
 import {data} from "../../SpeakerData"
-
-function SpeakersList({ showSessions }) {
+import {SpeakerFilterContext} from './contexts/speakerFilterContext'
+function SpeakersList() {
     const {
        data: speakersData,
         requestStatus,
@@ -31,7 +31,6 @@ function SpeakersList({ showSessions }) {
                         return (
                             <Speaker key={speaker.id}
                                 speaker={speaker}
-                                showSessions={showSessions}
                                 onFavoriteToggle={(doneCallback) => {
                                     updateRecord({
                                         ...speaker,

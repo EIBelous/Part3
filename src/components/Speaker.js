@@ -1,5 +1,7 @@
-import { useDebugValue } from "react";
+import { useContext, useDebugValue } from "react";
 import { useState } from "react";
+import {SpeakerFilterContext} from './contexts/speakerFilterContext'
+
 function Session({ title, room }) {
     return (
         <span className="sesion w-100">
@@ -83,9 +85,9 @@ function SpeakerDemographics({ first, last, bio, company, twitterHandle, favorit
         </div>
     )
 }
-function Speaker({ speaker, showSessions,onFavoriteToggle }) {
+function Speaker({ speaker, onFavoriteToggle }) {
     const { id, first, last, sessions } = speaker;
-    
+    const {showSessions} = useContext(SpeakerFilterContext)
     return (
         <div
             className="col=xs-12 col-sm-12 col-md-6 col-lg-4 col-sm-12 col-xs-12">
