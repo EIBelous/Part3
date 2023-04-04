@@ -4,7 +4,11 @@ import {SpeakerFilterContext} from './contexts/speakerFilterContext'
 
 function SpeakersTollbar(){
 const {theme, setTheme} = useContext(ThemeContext)
-const {showSessions, setShowSessions} = useContext(SpeakerFilterContext)
+const {showSessions, setShowSessions, setEventYear,
+  eventYear,
+  searchQuery,
+  setSearchQuery,
+  EVENT_YEARS} = useContext(SpeakerFilterContext)
 
     return(
 <section className="toolbar dark-theme-header">
@@ -39,10 +43,43 @@ const {showSessions, setShowSessions} = useContext(SpeakerFilterContext)
                 </select>  
                 </label>   
                 </li>   
+                <li>
+                  <div className="input-group">
+                    <input type="text" className="form-control" placeholder="Search..."
+                    onChange={(event) =>{
+                      setSearchQuery(event.target.value)
+                    }}
+                    />
+                    <div className="input-group-append">
+                      <button className="btn-secondary" type="button">
+                        <i className="fa fa-search">  </i>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+                <li className="d-flex flex-column flex-md-row">
+                  <strong>Year</strong>
+                  <label className="dropmenu">
+                    <select className="form-control" Value={eventYear}>
+                      onChange={({currentTarget})=> {
+                        setEventYear(currentTarget.value)
+                       
+                      }}
+                      
+                      {EVENT_YEARS.map(function(year){
+                        return(
+                          <option value={year} key={year}>{year}</option>
+                        );
+                      })}
+                    </select>
+                  </label>
+
+                </li>
         </ul>
         </div>
     </div>
 </section>        
     )
 }
+
 export default SpeakersTollbar
