@@ -52,7 +52,58 @@ useEffect(() => {
         }
 delayFunction()
 }
-return    { data, requestStatus, error, updateRecord
+function insertRecord(record, doneCallback) {
+    const oridinalRecords=[...data]
+    const newRecords = [record, ...data]
+    async function delayFunction() {
+        try {
+            setData(newRecords)
+            await delay(delayTime)
+            if (doneCallback){
+                doneCallback()
+            }
+            
+        } catch (error) {
+            console.log("Eroorr ya ebu blyaaaa")
+            if (doneCallback) {
+                doneCallback()
+            }
+            setData(oridinalRecords)
+        }
+    }
+    delayFunction()
+}
+
+function deleteRecord(record, doneCallback) {
+    const oridinalRecords=[...data]
+    const newRecords = data.filter(function(rec){
+        return (
+            rec.id != record.id
+        )
+    })
+    async function delayFunction() {
+        try {
+            setData(newRecords)
+            await delay(delayTime)
+            if (doneCallback){
+                doneCallback()
+            }
+            
+        } catch (error) {
+            console.log("Eroorr ya ebu blyaaaa")
+            if (doneCallback) {
+                doneCallback()
+            }
+            setData(oridinalRecords)
+        }
+    }
+    delayFunction()
+}
+
+
+
+
+return    { data, requestStatus, error, updateRecord,insertRecord,deleteRecord
     }; 
 
 }
